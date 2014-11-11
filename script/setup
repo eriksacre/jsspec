@@ -1,0 +1,6 @@
+#!/bin/sh
+
+npm install karma
+npm install karma-jasmine karma-chrome-launcher
+npm install jake
+npm install jshint
