@@ -5,7 +5,10 @@ In this repo I am playing with some tools to explore BDD for JavaScript developm
 * Karma: test runner
 * Jake: a kind of make/rake for JavaScript
 * Jasmine: BDD framework
+* JSHint
 * Nodejs
+
+These techniques and tools are based on the work by James Shore.
 
 ## Getting started
 
@@ -13,6 +16,4 @@ In this repo I am playing with some tools to explore BDD for JavaScript developm
 * Run script/setup to install required node packages
 * ./jake karma -- this will start the karma server
 * Point any browser you wish to test to localhost:9876 (or servername:9876 when using non-local browsers, e.g. tablets, phones...
-* ./jake -- a test run. I've setup a shortcut in Vim to run this command
-
-
+* ./jake -- a lint and test run. I've setup a shortcut in Vim to run this command
