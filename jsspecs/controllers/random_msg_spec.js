@@ -5,6 +5,7 @@
     var domMessage;
     var domLink;
     var PROMPT = /Please/;
+    var EMPTY = "";
 
     beforeEach(function() {
       domMessage = $("<div id='message'></div>");
@@ -20,20 +21,21 @@
       domLink.remove();
     });
 
-    it("prompt user for action upon startup", function() {
+    it("prompts user for action upon startup", function() {
       expect(messageText()).toMatch(PROMPT);
     });
 
     it("shows a random message upon the user clicking the new-link", function() {
       clickNewMessage();
       expect(messageText()).not.toMatch(PROMPT);
+      expect(messageText()).not.toBe(EMPTY);
     });
 
     it("shows a different message upon clicking the new-link repeatedly", function() {
       clickNewMessage();
       var firstMessage = messageText();
       clickNewMessage();
-      expect(messageText()).not.toEqual(firstMessage);
+      expect(messageText()).not.toBe(firstMessage);
     });
 
     function clickNewMessage() {
