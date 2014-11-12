@@ -1,7 +1,9 @@
+/* global protime360 */
+
 protime360.controllers.randomMessagePicker = (function(msgWrapper) {
   "use strict";
 
-  var pub = {}
+  var pub = {};
   var MESSAGES = [
     'Welcome to the house of fun',
     'I come from a land down under',
@@ -14,11 +16,11 @@ protime360.controllers.randomMessagePicker = (function(msgWrapper) {
   pub.initialize = function() {
     msgWrapper.onUserRequestsNewMessage(newMessage);
     promptForAction();
-  }
+  };
 
   pub.destroy = function() {
     msgWrapper.offUserRequestsNewMessage();
-  }
+  };
 
   function promptForAction() {
     msgWrapper.setMessage('Please click "New" to get a new message.');
@@ -33,8 +35,9 @@ protime360.controllers.randomMessagePicker = (function(msgWrapper) {
   }
 
   function newRandomPickIndex() {
+    var pick;
     do {
-      var pick = Math.floor(Math.random() * nrOfMessages());
+      pick = Math.floor(Math.random() * nrOfMessages());
     } while(pick === lastMessageIndex);
     lastMessageIndex = pick;
     return lastMessageIndex;

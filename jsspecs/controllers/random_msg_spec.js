@@ -1,3 +1,5 @@
+/* global protime360, describe, beforeEach, afterEach, expect, it */
+
 (function() {
   "use strict";
 
