@@ -18,7 +18,7 @@
   desc("Run specs");
   task("spec", function() {
     runner.run(CONFIG, function(exitCode) {
-      if(exitCode) fail("Specs failed -- be sure to jake karma");
+      if(exitCode) fail("Specs failed");
     });
   });
 })();
