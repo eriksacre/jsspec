@@ -3,7 +3,6 @@
 protime360.controllers.randomMessagePicker = (function(msgWrapper) {
   "use strict";
 
-  var pub = {};
   var MESSAGES = [
     'Welcome to the house of fun',
     'I come from a land down under',
@@ -13,13 +12,15 @@ protime360.controllers.randomMessagePicker = (function(msgWrapper) {
   ];
   var lastMessageIndex = null;
 
-  pub.initialize = function() {
-    msgWrapper.onUserRequestsNewMessage(newMessage);
-    promptForAction();
-  };
+  return {
+    initialize: function() {
+      msgWrapper.onUserRequestsNewMessage(newMessage);
+      promptForAction();
+    },
 
-  pub.destroy = function() {
-    msgWrapper.offUserRequestsNewMessage();
+    destroy: function() {
+      msgWrapper.offUserRequestsNewMessage();
+    }
   };
 
   function promptForAction() {
@@ -46,6 +47,4 @@ protime360.controllers.randomMessagePicker = (function(msgWrapper) {
   function nrOfMessages() {
     return MESSAGES.length;
   }
-  
-  return pub;
 }(protime360.dom.messageWrapper));

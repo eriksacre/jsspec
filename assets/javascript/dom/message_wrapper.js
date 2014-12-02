@@ -3,22 +3,20 @@
 protime360.dom.messageWrapper = (function($) {
   "use strict";
 
-  var pub = {};
+  return {
+    onUserRequestsNewMessage: function(callback) {
+      $(document).on('click', '#new-message', function() {
+        callback();
+        return false;
+      });
+    },
 
-  pub.onUserRequestsNewMessage = function(callback) {
-    $(document).on('click', '#new-message', function() {
-      callback();
-      return false;
-    });
+    offUserRequestsNewMessage: function() {
+      $(document).off('click', '#new-message');
+    },
+
+    setMessage: function(text) {
+      $('#message').text(text);
+    }
   };
-
-  pub.offUserRequestsNewMessage = function() {
-    $(document).off('click', '#new-message');
-  };
-
-  pub.setMessage = function(text) {
-    $('#message').text(text);
-  };
-
-  return pub;
 }(jQuery));
