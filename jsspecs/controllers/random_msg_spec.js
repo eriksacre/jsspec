@@ -4,23 +4,21 @@
   "use strict";
 
   describe("Random message controller", function() {
-    var domMessage;
-    var domLink;
+    var domFragment;
     var PROMPT = /Please/;
     var EMPTY = "";
+    var randomMessagePicker;
 
     beforeEach(function() {
-      domMessage = $("<div id='message'></div>");
-      domLink = $("<a href='#' id='new-message'>New</a>"); 
-      $(document.body).append(domMessage);
-      $(document.body).append(domLink);
-      protime360.controllers.randomMessagePicker.initialize();
+      domFragment = $("<div id='message'></div><a href='#' id='new-message'>New</a>");
+      $(document.body).append(domFragment);
+      randomMessagePicker = Object.create(protime360.controllers.randomMessagePicker);
+      randomMessagePicker.initialize();
     });
 
     afterEach(function() {
-      protime360.controllers.randomMessagePicker.destroy();
-      domMessage.remove();
-      domLink.remove();
+      randomMessagePicker.destroy();
+      domFragment.remove();
     });
 
     it("prompts user for action upon startup", function() {
